@@ -4,6 +4,8 @@ import Home from "./components/pages/home";
 import Events from "./components/pages/events";
 import MyEvents from "./components/pages/my-events";
 import AddEvent from "./components/pages/add-event";
+import Register from "./components/pages/register";
+
 // import other pages as you create them
 // import About from "./components/pages/about";
 // import Contact from "./components/pages/contact";
@@ -18,6 +20,7 @@ export default function App() {
 
         {/* Your actual pages */}
         <Route path="/home" element={<Home />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/events" element={<Events />} />
         <Route path="/my-events" element={<MyEvents />} />
         <Route path="/add-event" element={<AddEvent />} />

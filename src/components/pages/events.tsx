@@ -1,7 +1,8 @@
 
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Calendar, MapPin, User, Users, Search } from "lucide-react"
+import { getEvents } from "../../api/eventApi"
 
 // Static demo data
 const staticEvents = [
@@ -45,6 +46,25 @@ export default function Events() {
   const [events, setEvents] = useState(staticEvents)
   const [searchTerm, setSearchTerm] = useState("")
   const [filterType, setFilterType] = useState("all")
+
+  const [loading, setLoading] = useState(false)
+
+    const fetchItems = async () => {
+    setLoading(true)
+    const response = await getEvents()
+    if ('data' in response) {
+      setEvents(response.data)
+    } else {
+      console.error('Error fetching items:', response.error)
+    }
+    setLoading(false)
+  }
+
+   useEffect(() => {
+    fetchItems()
+  }, [])
+
+
 
   const filteredEvents = events.filter((event) => event.title.toLowerCase().includes(searchTerm.toLowerCase()))
 

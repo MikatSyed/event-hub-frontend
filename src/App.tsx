@@ -5,6 +5,7 @@ import Events from "./components/pages/events";
 import MyEvents from "./components/pages/my-events";
 import AddEvent from "./components/pages/add-event";
 import Register from "./components/pages/register";
+import { Toaster } from "./components/ui/toaster";
 
 // import other pages as you create them
 // import About from "./components/pages/about";
@@ -37,6 +38,8 @@ export default function App() {
           }
         />
       </Routes>
+
+        <Toaster />
     </div>
   );
 }

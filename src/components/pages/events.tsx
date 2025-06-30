@@ -3,6 +3,8 @@
 import { useEffect, useState, useCallback } from "react"
 import { Calendar, MapPin, User, Users, Search, CalendarDays, RotateCcw, Loader2, AlertCircle } from "lucide-react"
 import { getEvents } from "../../api/eventApi"
+import Footer from "../landing/footer"
+import Navbar from "../landing/navbar"
 
 interface Event {
   _id: string
@@ -153,7 +155,9 @@ export default function Events() {
   const hasActiveFilters = searchTerm || selectedDate || dateRange !== "all"
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 py-4 sm:py-8">
+  <>
+    <Navbar/>
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 py-4 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 sm:mb-12">
           <div className="text-center mb-6 sm:mb-8">
@@ -459,5 +463,7 @@ export default function Events() {
         )}
       </div>
     </div>
+    <Footer/>
+  </>
   )
 }

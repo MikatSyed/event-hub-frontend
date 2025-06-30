@@ -31,7 +31,7 @@ instance.interceptors.response.use(function (response) {
     // Do something with response data
     const responseObject : ResponseSuccessType = {
 
-        data: response?.data?.data,
+        data: response?.data,
         meta: response?.data?.meta,
         
     }

@@ -6,6 +6,7 @@ import MyEvents from "./components/pages/my-events";
 import AddEvent from "./components/pages/add-event";
 import Register from "./components/pages/register";
 import { Toaster } from "./components/ui/toaster";
+import Login from "./components/pages/login";
 
 // import other pages as you create them
 // import About from "./components/pages/about";
@@ -22,6 +23,7 @@ export default function App() {
         {/* Your actual pages */}
         <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/events" element={<Events />} />
         <Route path="/my-events" element={<MyEvents />} />
         <Route path="/add-event" element={<AddEvent />} />

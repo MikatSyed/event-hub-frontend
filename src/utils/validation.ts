@@ -35,7 +35,7 @@ export const validatePhotoURL = (url: string): string | undefined => {
   return undefined
 }
 
-export const validateForm = (formData: {
+export const validateFormRegister = (formData: {
   name: string
   email: string
   password: string
@@ -45,4 +45,15 @@ export const validateForm = (formData: {
   email: validateEmail(formData.email),
   password: validatePassword(formData.password),
   photoURL: validatePhotoURL(formData.photoURL),
+})
+export const validateFormLogin = (formData: {
+
+  email: string
+  password: string
+
+}): FormErrors => ({
+ 
+  email: validateEmail(formData.email),
+  password: validatePassword(formData.password),
+
 })

@@ -9,7 +9,7 @@ import { Button } from "../../components/ui/button"
 import { Input } from "../../components/ui/input"
 import { Label } from "../../components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card"
-import { validateForm, type FormErrors } from "../../utils/validation"
+import { validateFormRegister, type FormErrors } from "../../utils/validation"
 import { useToast } from "../../hooks/use-toast"
 
 
@@ -47,7 +47,7 @@ export default function Register() {
 
     // Validate field if it has been touched
     if (touched[name]) {
-      const fieldErrors = validateForm(updatedFormData)
+      const fieldErrors = validateFormRegister(updatedFormData)
       const fieldError = fieldErrors[name as keyof FormErrors]
       setErrors((prev) => ({ ...prev, [name]: fieldError }))
     }
@@ -59,7 +59,7 @@ export default function Register() {
     setTouched((prev) => ({ ...prev, [name]: true }))
 
     // Validate the field with current form data
-    const fieldErrors = validateForm(formData)
+    const fieldErrors = validateFormRegister(formData)
     const fieldError = fieldErrors[name as keyof FormErrors]
     setErrors((prev) => ({ ...prev, [name]: fieldError }))
   }
@@ -76,7 +76,7 @@ export default function Register() {
     })
 
     // Validate the entire form
-    const formValidationErrors = validateForm(formData)
+    const formValidationErrors = validateFormRegister(formData)
     setErrors(formValidationErrors)
 
     // Check if there are any validation errors

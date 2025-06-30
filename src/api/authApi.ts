@@ -9,11 +9,18 @@ export async function signup(data: any) {
     data,
   })
 }
+export async function login(data: any) {
+  return axiosRequest({
+    url: '/auth/login',
+    method: 'POST',
+    data,
+  })
+}
 
 // READ single
-export async function getItem(id: string | number) {
+export async function getLoggedUser() {
   return axiosRequest({
-    url: `/events/${id}`,
+    url: `/users/my-profile`,
     method: 'GET',
   })
 }

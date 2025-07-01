@@ -23,7 +23,7 @@ export default function Navbar() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await getLoggedUser()
+        const response:any = await getLoggedUser()
         if (response?.data?.success && response.data.data) {
           setIsLoggedIn(true)
           setUserData(response.data.data)
@@ -53,7 +53,7 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
-  // Your custom logout function
+  
   const logout = () => {
     removeUserInfo(authKey)
     navigate("/login")
@@ -74,7 +74,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white/95 backdrop-blur-md shadow-sm border-b border-orange-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo and Brand */}
           <Link to="/" className="flex items-center space-x-3 group">
@@ -125,7 +125,7 @@ export default function Navbar() {
                     <img
                       src={userData.photoURL}
                       alt={userData.name}
-                      className="h-10 w-10 rounded-full object-cover mx-auto"
+                      className="h-10 w-10 rounded-full object-cover mx-auto cursor-pointer"
                       onError={(e) => { e.currentTarget.style.display = "none" }}
                     />
                   ) : (
@@ -137,8 +137,8 @@ export default function Navbar() {
                 </button>
 
                 {isProfileDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
-                    <div className="px-4 py-3 border-b border-gray-100 flex items-center space-x-3">
+                  <div className="cursor-pointer absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+                    <div className="  px-4 py-3 border-b border-gray-100 flex items-center space-x-3">
                       {userData.photoURL ? (
                         <img
                           src={userData.photoURL}
@@ -166,7 +166,7 @@ export default function Navbar() {
               </div>
             ) : (
               <Link to="/login">
-                <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-lg transition-all duration-300 font-semibold px-6 py-2 text-white rounded-lg">
+                <button className=" cursor-pointer bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-lg transition-all duration-300 font-semibold px-6 py-2 text-white rounded-lg">
                   Sign In
                 </button>
               </Link>
@@ -199,7 +199,7 @@ export default function Navbar() {
                   </Link>
                   <button
                     onClick={logout}
-                    className="text-left text-gray-700 hover:text-orange-600 transition-colors font-medium py-2 flex items-center space-x-2"
+                    className="cursor-pointer text-left text-gray-700 hover:text-orange-600 transition-colors font-medium py-2 flex items-center space-x-2"
                   >
                     <LogOut className="h-4 w-4" />
                     <span>Logout</span>

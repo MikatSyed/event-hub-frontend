@@ -18,10 +18,10 @@ export default function App() {
    
       <Routes>
         {/* Redirect “/” → “/home” */}
-        <Route path="/" element={<Navigate to="/home" replace />} />
+      
 
         {/* Your actual pages */}
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/events" element={<Events />} />

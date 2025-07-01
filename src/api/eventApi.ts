@@ -2,7 +2,7 @@ import { axiosRequest } from "../helpers/axios/axiosBaseQuery"
 
 
 // CREATE
-export async function createItem(data: any) {
+export async function createEvent(data: any) {
   return axiosRequest({
     url: '/events',
     method: 'POST',

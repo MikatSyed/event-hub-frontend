@@ -49,7 +49,6 @@ function useDebounce(value: string, delay: number) {
 
 export default function Events() {
   const [events, setEvents] = useState<Event[]>([])
-  console.log(events,'50')
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedDate, setSelectedDate] = useState("")
   const [dateRange, setDateRange] = useState("all")
@@ -66,14 +65,14 @@ export default function Events() {
     setError(null)
 
     try {
-      const response = await getEvents(params)
+      const response:any = await getEvents(params)
 
       if ("data" in response && response.data) {
-        const apiResponse = response as ApiResponse
+        const apiResponse:any = response as ApiResponse
         console.log(apiResponse,'69')
 
         if (apiResponse) {
-          setEvents(apiResponse.data)
+          setEvents(apiResponse.data.data)
           if (apiResponse.meta) {
             setMeta(apiResponse.meta)
           }
@@ -158,7 +157,7 @@ export default function Events() {
   <>
     <Navbar/>
       <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 py-4 sm:py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 sm:mb-12">
           <div className="text-center mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 to-orange-800 bg-clip-text text-transparent mb-16">

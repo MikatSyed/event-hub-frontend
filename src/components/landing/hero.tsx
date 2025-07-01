@@ -8,7 +8,7 @@ const Hero = () => {
       {/* Hero Section */}
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 opacity-5"></div>
-        <div className="max-w-7xl mx-auto text-center relative z-10">
+        <div className="max-w-8xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
             <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-orange-600 to-orange-800 bg-clip-text text-transparent mb-8 leading-tight">
               Discover Premium Events
@@ -41,7 +41,7 @@ const Hero = () => {
 
       {/* Features Section */}
       <section className="py-24 px-4 bg-white relative">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why Choose EventHub Premium?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -94,7 +94,7 @@ const Hero = () => {
 
       {/* Premium Features */}
       <section className="py-24 px-4 bg-gradient-to-r from-orange-50 to-orange-100">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Premium Features for Premium Events</h2>

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white sticky">
    
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
      
           <div>
@@ -125,7 +125,7 @@ export default function Footer() {
 
       {/* Newsletter */}
       <div className="border-t border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between">
           <div className="mb-4 md:mb-0">
             <h3 className="text-xl font-semibold text-white mb-2">Stay Updated</h3>
             <p className="text-gray-300">Get notified about the latest premium events and exclusive offers.</p>
@@ -149,7 +149,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
           <span>© 2024 EventHub Premium. All rights reserved.</span>
           <div className="flex space-x-6 mt-4 md:mt-0">
             {["Privacy", "Terms", "Cookies", "Accessibility"].map((item) => (

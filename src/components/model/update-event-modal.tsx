@@ -38,7 +38,7 @@ interface UpdateEventModalProps {
 }
 
 export default function UpdateEventModal({ isOpen, event, onClose, onUpdate, isUpdating }: UpdateEventModalProps) {
-  const [formData, setFormData] = useState<EventFormData>({
+  const [formData, setFormData] = useState<any>({
     title: "",
     description: "",
     date: "",

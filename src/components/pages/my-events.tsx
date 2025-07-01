@@ -117,6 +117,7 @@ export default function MyEvents() {
       const response: any = await updateEvent(selectedEvent._id, formData)
       if (response?.data?.success) {
         toast({
+          variant:'success',
           title: "Event Updated Successfully! 🎉",
           description: "Your event has been updated.",
         })
@@ -128,7 +129,7 @@ export default function MyEvents() {
         setSelectedEvent(null)
       } else {
         toast({
-          variant: "destructive",
+          variant: "warning",
           title: "Update Failed",
           description: response?.error?.data || "Please try again later.",
         })

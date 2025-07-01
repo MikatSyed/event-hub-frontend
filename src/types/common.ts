@@ -133,3 +133,36 @@ export interface LocalGuardian {
   contactNo: string;
   address: string;
 }
+
+
+export interface Event {
+  _id: string
+  title: string
+  creatorName: string
+  date: string
+  time: string
+  location: string
+  description: string
+  attendeeCount: number
+  joined?: string[]
+  createdBy: string
+}
+
+export interface LoggedInUser {
+  _id: string
+  name: string
+  email: string
+  photoURL: string
+}
+
+export interface ApiResponse {
+  statusCode: number
+  success: boolean
+  message: string
+  meta?: {
+    page: number
+    limit: number
+    total: number
+  }
+  data: Event[]
+}

@@ -45,6 +45,14 @@ export async function updateEvent(id: string | number, data: any) {
   })
 }
 
+export async function jointEvent(id: string | number, data: any) {
+  return axiosRequest({
+    url: `/events/${id}/join-event`,
+    method: 'PATCH',
+    data,
+  })
+}
+
 // DELETE
 export async function deleteEvent(id: string | number) {
   return axiosRequest({

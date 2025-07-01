@@ -27,17 +27,26 @@ export async function getEvents(params?: any) {
   })
 }
 
+// READ all
+export async function getMyEvents(params?: any) {
+  return axiosRequest({
+    url: '/events/my-event',
+    method: 'GET',
+    params,
+  })
+}
+
 // UPDATE
-export async function updateItem(id: string | number, data: any) {
+export async function updateEvent(id: string | number, data: any) {
   return axiosRequest({
     url: `/events/${id}`,
-    method: 'PUT',
+    method: 'PATCH',
     data,
   })
 }
 
 // DELETE
-export async function deleteItem(id: string | number) {
+export async function deleteEvent(id: string | number) {
   return axiosRequest({
     url: `/events/${id}`,
     method: 'DELETE',

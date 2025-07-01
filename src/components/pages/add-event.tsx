@@ -12,7 +12,6 @@ import {
   Plus,
   ArrowLeft,
   Star,
-  Sparkles,
   List,
 } from "lucide-react";
 import { createEvent } from "../../api/eventApi";
@@ -20,7 +19,6 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import {
-  Card,
   CardContent,
   CardDescription,
   CardHeader,
@@ -32,8 +30,7 @@ import {
   type EventFormErrors,
 } from "../../utils/validation";
 import { useToast } from "../../hooks/use-toast";
-import Navbar from "../landing/navbar";
-import Footer from "../landing/footer";
+
 
 interface EventFormData {
   title: string;
@@ -45,7 +42,7 @@ interface EventFormData {
 }
 
 export default function AddEvent() {
-  const [formData, setFormData] = useState<EventFormData>({
+  const [formData, setFormData] = useState<any>({
     title: "",
     description: "",
     date: "",
@@ -114,7 +111,7 @@ export default function AddEvent() {
     setIsLoading(true);
 
     try {
-      const response = await createEvent(formData);
+      const response:any = await createEvent(formData);
 
       if (response?.data?.success) {
         toast({
@@ -133,7 +130,7 @@ export default function AddEvent() {
         setErrors({});
         setTouched({});
 
-        setTimeout(() => router.push("/events"), 2000);
+       
       } else {
         toast({
           variant: "destructive",
@@ -154,7 +151,7 @@ export default function AddEvent() {
   };
 
   const handleBack = () => {
-    // router.back()
+   navigate(-1);
   };
 
   const renderInput = (
@@ -246,7 +243,7 @@ export default function AddEvent() {
 
             <button
               onClick={() => navigate("/events")}
-              className="inline-flex items-center bg-orange-600 text-white hover:bg-orange-700 font-semibold rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              className="inline-flex items-center bg-orange-600 text-white hover:bg-orange-700 font-semibold rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 transition cursor-pointer"
               aria-label="Go to Events List"
               type="button"
             >

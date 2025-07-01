@@ -1,6 +1,6 @@
 
 import { X, Loader2, AlertTriangle } from "lucide-react"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 
 
 

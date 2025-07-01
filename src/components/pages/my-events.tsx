@@ -1,13 +1,14 @@
 "use client"
 
 import { useEffect, useState, useCallback } from "react"
-import { Calendar, MapPin, User, Users, Loader2, AlertCircle, Edit, Trash2, Plus } from "lucide-react"
+import { Calendar, MapPin, User, Users, Loader2, AlertCircle, Edit, Trash2, Plus, Home, ArrowLeft } from "lucide-react"
 import { getMyEvents, updateEvent, deleteEvent } from "../../api/eventApi"
 import { useToast } from "../../hooks/use-toast"
 import Footer from "../landing/footer"
 import Navbar from "../landing/navbar"
-import UpdateEventModal from "../update-event-modal"
-import DeleteEventModal from "../delete-event-modal"
+import UpdateEventModal from "../model/update-event-modal"
+import DeleteEventModal from "../model/delete-event-modal"
+import { useNavigate } from "react-router-dom"
 
 
 interface Event {
@@ -54,6 +55,7 @@ export default function MyEvents() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
+  const navigate = useNavigate();
 
   const { toast } = useToast()
 
@@ -183,11 +185,40 @@ export default function MyEvents() {
     }
   }
 
+   const handleBack = () => {
+   navigate(-1);
+  };
+
+
   return (
     <>
-      <Navbar />
+    
       <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 py-4 sm:py-8">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+
+               <div className="flex justify-between mb-8">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center text-gray-600 hover:text-orange-600 font-medium transition-colors rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              aria-label="Back to Previous Page"
+              type="button"
+            >
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border-2 border-[#ff6900] mr-2">
+                <ArrowLeft className="w-6 h-6 text-[#ff6900]" />
+              </span>
+              Back
+            </button>
+
+            <button
+              onClick={() => navigate("/")}
+              className="cursor-pointer inline-flex items-center bg-orange-600 text-white hover:bg-orange-700 font-semibold rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              aria-label="Go to Events List"
+              type="button"
+            >
+              <Home className="w-6 h-6 mr-2" />
+              Home
+            </button>
+          </div>
           <div className="mb-8 sm:mb-12">
             <div className="text-center mb-6 sm:mb-8">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 to-orange-800 bg-clip-text text-transparent mb-4">
@@ -342,7 +373,7 @@ export default function MyEvents() {
         </div>
       </div>
 
-      {/* Update Modal */}
+    
       <UpdateEventModal
         isOpen={isUpdateModalOpen}
         event={selectedEvent}
@@ -354,7 +385,7 @@ export default function MyEvents() {
         isUpdating={isUpdating}
       />
 
-      {/* Delete Modal */}
+    
       <DeleteEventModal
         isOpen={isDeleteModalOpen}
         event={selectedEvent}
@@ -366,7 +397,7 @@ export default function MyEvents() {
         isDeleting={isDeleting}
       />
 
-      <Footer />
+    
     </>
   )
 }

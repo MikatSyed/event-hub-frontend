@@ -56,7 +56,6 @@ export default function Navbar() {
   
   const logout = () => {
     removeUserInfo(authKey)
-    navigate("/login")
     setIsLoggedIn(false)
     setUserData(null)
     setIsProfileDropdownOpen(false)
@@ -85,7 +84,7 @@ export default function Navbar() {
               <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                 EventHub
               </span>
-              <div className="text-xs text-gray-500 font-medium">Premium Events</div>
+             
             </div>
           </Link>
 
@@ -99,7 +98,7 @@ export default function Navbar() {
               Events
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            {isLoggedIn && (
+          
               <>
                 <Link to="/add-event" className="text-gray-700 hover:text-orange-600 transition-colors font-medium relative group">
                   Add Event
@@ -110,7 +109,7 @@ export default function Navbar() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </>
-            )}
+      
           </div>
 
           {/* Auth Section */}
@@ -137,7 +136,7 @@ export default function Navbar() {
                 </button>
 
                 {isProfileDropdownOpen && (
-                  <div className="cursor-pointer absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+                  <div className=" absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
                     <div className="  px-4 py-3 border-b border-gray-100 flex items-center space-x-3">
                       {userData.photoURL ? (
                         <img
@@ -151,12 +150,15 @@ export default function Navbar() {
                         </div>
                       )}
                       <div>
-                        <p className="text-sm font-semibold text-gray-900">{userData.name}</p>
+                      <p className="text-sm font-semibold text-gray-900 pointer-events-none select-none">
+  {userData.name}
+</p>
+
                       </div>
                     </div>
                     <button
                       onClick={logout}
-                      className="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3"
+                      className=" cursor-pointer w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3"
                     >
                       <LogOut className="h-4 w-4 text-gray-500" />
                       <span>Logout</span>

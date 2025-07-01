@@ -1,6 +1,6 @@
 import type React from "react"
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Calendar, Mail, Lock, AlertCircle, Eye, EyeOff } from "lucide-react"
 import { login } from "../../api/authApi"
 import { Button } from "../../components/ui/button"
@@ -22,8 +22,12 @@ export default function Login() {
   const [touched, setTouched] = useState<Record<string, boolean>>({})
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const location = useLocation();
+  const navigate = useNavigate();
+  const params = new URLSearchParams(location.search);
+  const callback = params.get("callback") || "/";
 
-  const navigate = useNavigate()
+ 
   const { toast } = useToast()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,6 +76,7 @@ export default function Login() {
 
       if (response?.data?.success) {
         toast({
+          variant: "success",
           title: "Login Successful 🎉",
           description: "Redirecting to your home...",
         })
@@ -83,7 +88,7 @@ export default function Login() {
           email: "",
           password: ""
         })
-        navigate("/")
+        navigate(callback, { replace: true });
       } else {
         toast({
           variant: "destructive",

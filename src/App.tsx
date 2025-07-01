@@ -7,30 +7,43 @@ import AddEvent from "./components/pages/add-event";
 import Register from "./components/pages/register";
 import { Toaster } from "./components/ui/toaster";
 import Login from "./components/pages/login";
+import PrivateRoute from "./components/private-route/private-route";
 
-// import other pages as you create them
-// import About from "./components/pages/about";
-// import Contact from "./components/pages/contact";
+
 
 export default function App() {
   return (
     <div>
-   
       <Routes>
-        {/* Redirect “/” → “/home” */}
-      
-
-        {/* Your actual pages */}
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/my-events" element={<MyEvents />} />
-        <Route path="/add-event" element={<AddEvent />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} /> */}
 
-        {/* Catch-all for unmatched URLs */}
+        <Route
+          path="/events"
+          element={
+            <PrivateRoute>
+              <Events />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/add-event"
+          element={
+            <PrivateRoute>
+              <AddEvent />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/my-events"
+          element={
+            <PrivateRoute>
+              <MyEvents />
+            </PrivateRoute>
+          }
+        />
+     
         <Route
           path="*"
           element={
@@ -41,7 +54,7 @@ export default function App() {
         />
       </Routes>
 
-        <Toaster />
+      <Toaster />
     </div>
   );
 }

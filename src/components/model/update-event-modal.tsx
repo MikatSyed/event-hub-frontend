@@ -3,11 +3,11 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { Calendar, MapPin, User, X, Loader2, AlertCircle } from "lucide-react"
-import { validateEventForm, type EventFormErrors } from "../utils/validation"
-import { Label } from "./ui/label"
-import { Textarea } from "./ui/textarea"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
+import { validateEventForm, type EventFormErrors } from "../../utils/validation"
+import { Label } from "../ui/label"
+import { Textarea } from "../ui/textarea"
+import { Button } from "../ui/button"
+import { Input } from "../ui/input"
 
 interface Event {
   _id: string
